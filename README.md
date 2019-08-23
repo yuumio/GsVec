@@ -13,11 +13,12 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 
 ## Download
 - GsVec.tools.R
-このフォルダの「GsVec.tools_v5.R」のファイルをダウンロードしてください。
-> [GsVec.tools_v5.R](https://github.com/yuumio/GsVec/GsVec.tool_v5.R)
--Training data from MSigDB
-ライセンスはMSigDBの規約に従ってください。
-CP
+  - このフォルダの「GsVec.tools_v5.R」のファイルをダウンロードしてください。
+  > [GsVec.tools_v5.R](https://github.com/yuumio/GsVec/GsVec.tool_v5.R)
+- Training data from MSigDB
+  - **ライセンスはMSigDBの規約に従ってください。** http://software.broadinstitute.org/gsea/license_terms_list.jsp
+  - 「C2: curated gene sets」の「CP: Canonical pathways」と、「C5: GO gene sets」の「BP: GO biological process」のGene Symbolで表記されたgmtファイルをダウンロードしてください。ただし、CPには一部ライセンスが必要なものがありますので、ダウンロード時は注意してください。
+  > http://software.broadinstitute.org/gsea/downloads.jsp
 
 ----
 ## Workflow
@@ -29,4 +30,8 @@ CP
 source("//XXX/XXX/GsVec.tools_v05.R")
 ~~~
 
-### 2. Preparation training and test data
+### 2. Preparation training and validation data
+
+> Tip: 
+> 比較したいデータ（validation）データがgmt形式ではなく、遺伝子名とP-value、Fold change等が記載されている下記のようなリストであれば、****
+
