@@ -23,7 +23,7 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 ----
 
 ## Install packages
-GsVecはCRANおよびBioconductorの以下のパッケージを使用します。
+GsVecはCRANの以下のパッケージを使用します。事前にインストールしておいてください。
 ~~~
 install.packages("data.table")
 install.packages("ggplot2")
