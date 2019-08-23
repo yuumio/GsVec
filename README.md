@@ -12,7 +12,8 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 -----
 
 ## Download
-このフォルダの「GsVec.tools.R」のファイルをダウンロードしてください。
+このフォルダの「GsVec.tools_v5.R」のファイルをダウンロードしてください。
+> [GsVec.tools_v5.R](https://github.com/yuumio/GsVec/GsVec.tool_v5.R)
 
 ----
 ## Workflow
