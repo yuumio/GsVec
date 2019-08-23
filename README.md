@@ -96,7 +96,7 @@ BIC（Bayesian information criterion）または、BF（Baysian Factor）が最�
 - "cluster_n"に選択したクラスター数を入力してください。
 - "cluster_method"は先の"estimate_cluster_size"で指定したものを入力してください。
 ~~~
-train.fm <- gs.train_topicvec(
+train.tv <- gs.train_topicvec(
   gene.vec = train.fm, 
   train.data = train.data, 
   cluster_n = cluster_n, 
@@ -106,4 +106,24 @@ train.fm <- gs.train_topicvec(
 out <- data.table(id = rownames(train.fm), train.fm, stringsAsFactors = F)
 fwrite(out,paste0("train.fm_",feature.name,".txt"),sep="\t",quote=F,row.names=F)
 ~~~
+
+### 4. Conduct GsVec
+"**GSVEC**"関数を用いて、ここまでに作成した"train.data","val.data","train.tv"(Gene-topic vector)を使って、Training dataとValidation dataのGene signature間の類似度を求めます。
+- この結果を用いてtSNEで可視化するためには、"export_predict.gs.vector"のオプションをT(TRUE)にしておいてください。
+- "calc.Fisher"のップションT(TRUE)で、Fisher excat test(以降、Fisher)を同時に実行できます。Fisherの結果も並べて解釈することは有用です。
+- このステップには、val.dataの数により、数時間かかる場合があります。
+~~~
+gsvec <- GSVEC(
+  train.data = train.data,
+  val.data = val.data,
+  train.gsvec = train.tv,
+  feature.name = "feature.name",
+  export_predict.gs.vector = T,
+  calc.Fisher = T #F
+)
+~~~
+
+### Option: Vidualization by tSNE
+Training dataとValidating dataをtSNEにより可視化をすることができます。
+
 
