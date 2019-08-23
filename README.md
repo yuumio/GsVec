@@ -21,6 +21,19 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
   > http://software.broadinstitute.org/gsea/downloads.jsp
 
 ----
+
+## Install packages
+GsVecはCRANおよびBioconductorの以下のパッケージを使用します。
+~~~
+install.packages("data.table")
+install.packages("ggplot2")
+install.packages("Rtsne")
+install.packages("fastTextR")
+install.packages("mclust")
+install.packages("maptpx")
+~~~
+
+----
 ## Usage
 以降のステップは全てR言語で行います。
 
