@@ -126,7 +126,7 @@ fwrite(out,paste0("train.fm_",feature.name,".txt"),sep="\t",quote=F,row.names=F)
 > ### Note:
 > 一度Gene-topic vectorを作れば、次回以降は1.のmake_train.dataと次のGsVecの実行だけです。
     
-### 4. Conduct GsVec
+### 4. Run GsVec
 "**GSVEC**"関数を用いて、ここまでに作成した"train.data","val.data","train.tv"(Gene-topic vector)を使って、Training dataとValidation dataのGene signature間の類似度を求めます。
 - この結果を用いてtSNEで可視化するためには、"export_predict.gs.vector"のオプションをT(TRUE)にしておいてください。
 - "calc.Fisher"のップションT(TRUE)で、Fisher excat test(以降、Fisher)を同時に実行できます。Fisherの結果も並べて解釈することは有用です。
