@@ -97,17 +97,19 @@ train.fm <- gs.train_genevec(
 次に、"**estimate_cluster_size**"関数で、trainingデータに含まれるトピック（クラスター）数の目安をつけます。
 - クラスタリングの方法はGMMとLDAから選択することができます。
 - それ以外はデフォルトをおすすめします。
-- このステップにはLDAでは数時間以上かかることがあります。
+- このステップにはLDAでは数時間かかることがあります。
 ~~~
 estimate_cluster.n(
 	genevec = train.fm,
 	cluster_method = c("gmm","lda"), #"g","m","GMM","LDA"
-	check_cluster.numbers = c(1,5,10,15,20,30,40,50,60,70,80,90,100),
+	check_cluster.numbers = c(5,10,15,20,30,40,50,60,70,80,90,100),
 	plot.score = T,
 	plot.export_name = feature.name
 )
 ~~~
-BIC（Bayesian information criterion）または、BF（Baysian Factor）が最も高いトピック数を選択してください。
+> ### CAUTION!
+> - **GMMのBIC（Bayesian information criterion）は、通常のBICと異なり（2*対数尤度 になっている）、最も大きい値が最適なクラスターです。**
+> - LDAのBICは通常通り、最も低いクラスター数を選択してください。
 
 この値を用いて、Gene-topic vectorを"**gs.train_topicvec**"の関数で作成します。
 - "cluster_n"に選択したクラスター数を入力してください。
