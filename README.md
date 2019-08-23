@@ -41,7 +41,7 @@ install.packages("maptpx")
 ### 1. load GsVec tools
 まず、GsVecのコードをロードしてください。
 ~~~
-source("//XXX/XXX/GsVec.tools_v05.R")
+source("./GsVec.tools_v05.R")
 ~~~
 
     
