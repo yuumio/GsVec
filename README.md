@@ -113,7 +113,7 @@ estimate_cluster.n(
 
 この値を用いて、Gene-topic vectorを"**gs.train_topicvec**"の関数で作成します。
 - "cluster_n"に選択したクラスター数を入力してください。
-- "cluster_method"は先の"estimate_cluster_size"で指定したものを入力してください。
+- "cluster_method"は先程と同じものを選択してください（GMM or LDA）。
 ~~~
 train.tv <- gs.train_topicvec(
   gene.vec = train.fm, 
