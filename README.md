@@ -12,11 +12,17 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 -----
 
 ## Download
+- GsVec.tools.R
 このフォルダの「GsVec.tools_v5.R」のファイルをダウンロードしてください。
 > [GsVec.tools_v5.R](https://github.com/yuumio/GsVec/GsVec.tool_v5.R)
+-Training data from MSigDB
+ライセンスはMSigDBの規約に従ってください。
+CP
 
 ----
 ## Workflow
+以降のステップは全てR言語で行います。
+
 ### 1. load GsVec tools
 まず、GsVecのコードをロードしてください。
 ~~~
