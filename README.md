@@ -152,11 +152,11 @@ pred.val <- as.matrix(tmp[,-1])
 rownames(pred.val) <- tmp[,1]
 
 pca.tsne_GsVec <- function(
-  gsvec.mat = pred.val_tfidf,		# col = feature, row=sigs
+  gsvec.mat = pred.val,	
   gsvec.train.data = train.data,
   gsvec.val.data = val.data,
   gs.group_id.group.mat = group.mat, 	#id,Group matrix
-  pca.thres = 0.95,#NA
+  pca.thres = 0.95, # or NA
   out_name = "pca.tsne",
   centering = F,
   tsne_max.iter = 500,
