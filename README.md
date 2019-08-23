@@ -73,11 +73,19 @@ val.data <- make_validation.data(
 
 > ### Tip:  
 > 比較したいデータ（validation）データがgmt形式ではなく、遺伝子名とP-value、Fold change等が記載されている下記のようなリストであれば、"**fromat_val.data_from.deg**"の関数で、validation dataの形式に変換することができます。
+> 
+> |Gene|P-value|log2FC|
+> |:------|------:|------:| 
+> | Gene1 | 0.0015 |-1.53|
+> | Gene2 | 0.0063 |4.32|
+> | Gene3 | 0.0072 |1.34|
+> | ...  | ... |...|
+> 
 > ~~~ 
 > fromat_val.data_from.deg(
 >   deg_txt = c("deg.txt"), #DEG file > 1, 
->   gene.symbol_col.no = 2, 
->   fold.change_col.no = 4,  # if No FC data = NA
+>   gene.symbol_col.no = 1, 
+>   fold.change_col.no = 3,  # if No FC data = NA
 >   fold.change_type = "log" # or "linear"
 > )
 > ~~~
@@ -126,12 +134,12 @@ out <- data.table(id = rownames(train.fm), train.fm, stringsAsFactors = F)
 fwrite(out,paste0("train.fm_",feature.name,".txt"),sep="\t",quote=F,row.names=F)
 ~~~
 > ### Note:
-> 一度Gene-topic vectorを作れば、次回以降は1.のmake_train.dataと次のGsVecの実行だけです。
+> 一度Gene-topic vectorを作れば、次回以降は1.のmake_val.dataと次のGsVecの実行だけです。
     
 ### 4. Run GsVec
 "**GSVEC**"関数を用いて、ここまでに作成した"train.data","val.data","train.tv"(Gene-topic vector)を使って、Training dataとValidation dataのGene signature間の類似度を求めます。
 - この結果を用いてtSNEで可視化するためには、"export_predict.gs.vector"のオプションをT(TRUE)にしておいてください。
-- "calc.Fisher"のップションT(TRUE)で、Fisher excat test(以降、Fisher)を同時に実行できます。Fisherの結果も並べて解釈することは有用です。
+- "calc.Fisher"のオプションT(TRUE)で、Fisher excat test(以降、Fisher)を同時に実行できます。Fisherの結果も並べて解釈することは有用です。
 - このステップには、val.dataの数により、数時間かかる場合があります。
 ~~~
 gsvec <- GSVEC(
