@@ -121,6 +121,8 @@ train.tv <- gs.train_topicvec(
 out <- data.table(id = rownames(train.fm), train.fm, stringsAsFactors = F)
 fwrite(out,paste0("train.fm_",feature.name,".txt"),sep="\t",quote=F,row.names=F)
 ~~~
+> ### Note:
+> 一度Gene-topic vectorを作れば、次回以降は1.のmake_train.dataと次のGsVecの実行だけです。
     
 ### 4. Conduct GsVec
 "**GSVEC**"関数を用いて、ここまでに作成した"train.data","val.data","train.tv"(Gene-topic vector)を使って、Training dataとValidation dataのGene signature間の類似度を求めます。
@@ -139,7 +141,7 @@ gsvec <- GSVEC(
 ~~~
 
 
-### Option: Vidualization by tSNE
+### Optional method: Vidualization by tSNE
 Training dataとValidating dataをtSNEにより可視化をすることができます。
 - gsvec.matには、4.の"export_predict.gs.vector"のオプションで作成された、"pred.val_freature.name.txt"を使用します。
 - デフォルトではtSNEの前にPCAを行い、その95%以上の主成分でtSNEを行います（高速）。直接tSNEを行いたい場合は、"pca.thres"のオプションを"NA"にしてください。
