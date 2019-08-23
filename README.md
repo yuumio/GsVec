@@ -30,8 +30,35 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 source("//XXX/XXX/GsVec.tools_v05.R")
 ~~~
 
-### 2. Preparation training and validation data
+### 2. Preparate training and validation data
+Training data from MSigDBのgmtファイルと、生物学的解釈を行いたい独自のGene signatureのgmtファイルを別のフォルダに格納し、以下の関数を実行します。
+- フォルダ内には複数のgmtファイルを含めることが可能です。
+- gmtファイルの形式は、MSigDBのgmtファイルを参考にしてください。
+- "gene.number_min", "gene.number_max"により、何遺伝子以上・以下のSignatureを解析対象とするか、調節できます。（trainデータはデフォルトがおすすめです。）
+~~~
+make_train.data(
+  train.data_dir.path ="./train.set",
+  gene.number_min = 10,
+  gene.number_max = 500,
+  export_name = "gsvec"
+)
 
-> Tip: 
-> 比較したいデータ（validation）データがgmt形式ではなく、遺伝子名とP-value、Fold change等が記載されている下記のようなリストであれば、****
+make_validation.data(
+  val.data_dir.path ="./val.set/",
+  gene.number_min = 10,
+  gene.number_max = 500,
+  export_name = "deg"
+)
+~~~
+
+> ### Tip:  
+> 比較したいデータ（validation）データがgmt形式ではなく、遺伝子名とP-value、Fold change等が記載されている下記のようなリストであれば、"**fromat_val.data_from.deg**"の関数で、validation dataの形式に変換することができます。
+> ~~~ 
+> fromat_val.data_from.deg(
+>   deg_txt = c("deg.txt"), #DEG file > 1, 
+>   gene.symbol_col.no = 2, 
+>   fold.change_col.no = 4,  # if No FC data = NA
+>   fold.change_type = "log" # or "linear"
+> )
+> ~~~
 
