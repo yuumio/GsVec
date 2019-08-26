@@ -116,7 +116,7 @@ estimate_cluster.n(
 )
 ~~~
 > ### CAUTION!
-> - **GMMのBIC（Bayesian information criterion）は、通常のBICと異なり（2*対数尤度 になっている）、最も大きい値が最適なクラスターです。**
+> - **mclustによるGMMのBIC（Bayesian information criterion）は、通常のBICと異なり（2*対数尤度 になっている）、最も大きい値が最適なクラスターです。GMMを用いる場合はBICが最も大きいクラスター数を選択してください。**
 > - LDAのBICは通常通り、最も低いクラスター数を選択してください。
 
 この値を用いて、Gene-topic vectorを"**gs.train_topicvec**"の関数で作成します。
