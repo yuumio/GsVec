@@ -176,7 +176,7 @@ pca.tsne_GsVec <- function(
 )
 ~~~
 > ### Tip:
-> デフォルトではTrain.dataとval.dataを2色に色分けします。
+> - デフォルトではTrain.dataとval.dataを2色に色分けします。
 > - Signatureごとに色を分けたい場合は、IDの列にSignature nameを、Groupの列に色分けの対象となるグループ名を記載した、Data.frameを作成し、"gs.group_id.group.mat"のオプションで指定してください。
 > 
 > | ID | Group |
