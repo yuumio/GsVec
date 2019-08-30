@@ -1,31 +1,31 @@
 # GsVec
 
-GsVec（Gene signature Vector）は、Bioinformaticsの遺伝子発現解析等で得られたGene signature(複数の遺伝子名からなるリスト)に自然言語処理を用いてPathway・Gene Ontology等のGene signatureとの関連付けを行う事で、Gene signatureの生物学的解釈を支援する解析手法です。
+GsVec (Gene signature Vector) is an analysis method that supports the biological interpretation of Gene signature obtained by gene expression analysis of Bioinformatics. The association between the gene signature to be interpreted and the gene signature of the Pathway / Gene Ontology data base is performed by natural language processing.
 
-従来のいわゆるPathway enrichment analysis（Fisher exact test, GSEA等）では、Gene signatureとのOverlapや分布の偏りと言った数値的な比較であり、ヒトが行うような含まれる遺伝子の特異性や重要度の比較を行う事は出来ませんでした。
+Conventional so-called Pathway enrichment analysis (Fisher exact test, GSEA, etc.) is a numerical comparison such as overlap with Gene signature and bias of distribution, and it was not possible to compare the specificity and importance of the genes involved as humans do.
 
-GsVecはそれらの方法と異なり、自然言語処理における文章の分散表現の手法を取り入れ、遺伝子およびその集合である生物学的なGene signatureの特徴を抽出し、それを手元のsignatureと比較することで意味的な関連性を明らかにするという独自の手法となっています。
+GsVec is a unique method different from those methods. This method is a semantic method by taking a distributed representation method of sentences in natural language processing, extracting the characteristics of a gene and its biological gene signature, and comparing it with the gene signature to be interpreted to clarify the relevance.
 
-また、この手法はBioinformaticsの主流言語であるR言語のみで全工程を実行可能です。
+In addition, this method can execute all processes only in the main language of Bioinformatics, R.
 
-詳細は下記の論文を参照してください。
+Please refer to the following paper for details.
 > [Yuumi Okuzono, Takashi Hoshino. "" XXXXXXX p.- 2019](https://www.google.co.jp/)
 
 ----
 
 ## Download
 - GsVec.tools.R
-  - このフォルダの「GsVec.tools_v5.R」のファイルをダウンロードしてください。
+  - Download the file “GsVec.tools_v5.R” in this directory.
   > [GsVec.tools_v5.R](https://github.com/yuumio/GsVec/GsVec.tool_v5.R)
 - Training data from MSigDB
-  - **ライセンスはMSigDBの規約に従ってください。** http://software.broadinstitute.org/gsea/license_terms_list.jsp
-  - 「C2: curated gene sets」の「CP: Canonical pathways」と、「C5: GO gene sets」の「BP: GO biological process」のGene Symbolで表記されたgmtファイルをダウンロードしてください。ただし、CPには一部ライセンスが必要なものがありますので、ダウンロード時は注意してください。
+  - **Please follow the MSigDB rules for licensing.** http://software.broadinstitute.org/gsea/license_terms_list.jsp
+  - Please download the gmt files indicated by Gene Symbol of “CP: Canonical pathways” of “C2: curated gene sets” and “BP: GO biological process” of “C5: GO gene sets”. However, some CPs require a license, so be careful when downloading.
   > http://software.broadinstitute.org/gsea/downloads.jsp
 
 ----
 
 ## Install packages
-GsVecはCRANの以下のパッケージを使用します。事前にインストールしておいてください。
+GsVec uses the following CRAN packages. Please install it in advance.
 ~~~
 install.packages("data.table")
 install.packages("ggplot2")
@@ -37,11 +37,11 @@ install.packages("maptpx")
 
 ----
 ## Usage
-以降のステップは全てR言語で行います。
+All subsequent steps are done in R language.
 
 
 ### 1. load GsVec tools
-まず、GsVecのコードをロードしてください。
+First, load the GsVec code.
 ~~~
 source("./GsVec.tools_v05.R")
 ~~~
