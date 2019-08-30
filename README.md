@@ -1,6 +1,6 @@
 # GsVec
 
-GsVec（Gene signature Vector）は、Bioinformaticsの遺伝子発現解析等で得られたGene signature(複数の遺伝子名からなるリスト)に自然言語処理を用いてPathway・Gene OntologyのData baseの情報と手元のGene signatureの関連付けを行う事で、Gene signatureの生物学的解釈を支援する解析手法です。
+GsVec（Gene signature Vector）は、Bioinformaticsの遺伝子発現解析等で得られたGene signature(複数の遺伝子名からなるリスト)に自然言語処理を用いてPathway・Gene Ontology等のGene signatureとの関連付けを行う事で、Gene signatureの生物学的解釈を支援する解析手法です。
 
 従来のいわゆるPathway enrichment analysis（Fisher exact test, GSEA等）では、Gene signatureとのOverlapや分布の偏りと言った数値的な比較であり、ヒトが行うような含まれる遺伝子の特異性や重要度の比較を行う事は出来ませんでした。
 
