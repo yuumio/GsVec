@@ -41,15 +41,9 @@ All subsequent steps are done in R language.
 
 
 ### 1. load GsVec tools
-First, load the GsVec codes and packages.
+First, load the GsVec codes.
 ~~~
 source("./GsVec.tools_v05.R")
-library("data.table")
-library("ggplot2")
-library("Rtsne")
-library("fastTextR")
-library("mclust")
-library("maptpx")
 ~~~
 
     
