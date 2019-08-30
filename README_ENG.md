@@ -41,7 +41,7 @@ All subsequent steps are done in R language.
 
 
 ### 1. load GsVec tools
-First, load the GsVec code.
+First, load the GsVec codes.
 ~~~
 source("./GsVec.tools_v05.R")
 ~~~
