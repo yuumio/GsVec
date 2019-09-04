@@ -48,10 +48,10 @@ source("./GsVec.tools_v05.R")
 
     
 ### 2. Preparate training and validation data
-Training data from MSigDBのgmtファイルと、生物学的解釈を行いたい独自のGene signatureのgmtファイルを別のフォルダに格納し、以下の関数を実行します。
-- フォルダ内には複数のgmtファイルを含めることが可能です。
-- gmtファイルの形式は、MSigDBのgmtファイルを参考にしてください。
-- "gene.number_min", "gene.number_max"により、何遺伝子以上・以下のSignatureを解析対象とするか、調節できます。（trainデータはデフォルトがおすすめです。）
+Store the gmt file(s) of Training data from MSigDB and the gmt file(s) of your own gene signature that you want to perform biological interpretation in **different folders** and execute the following functions.
+- Multiple gmt files can be included in a folder.
+- Please refer to the gmt file of MSigDB for the format of the gmt file.
+- The gene signature to be analyzed can be adjusted to the number of genes more or less than the number of genes by the options of "gene.number_min", "gene.number_max". (The default is recommended for training data.)
 ~~~
 train.data <- make_train.data(
   train.data_dir.path ="./train.set",
@@ -60,7 +60,7 @@ train.data <- make_train.data(
   export_name = "gsvec"
 )
 ~~~
-実行が終わると、current dir内に「"export_name"_train.data.txt」、「"export_name"_train.data_gene.txt」、「"export_name"_train.data_name.txt」が作成されます。
+After execution, "'export_name'_train.data.txt", "'export_name'_train.data_gene.txt", and "'export_name'_train.data_name.txt" will be created in the current directory.
 ~~~
 val.data <- make_validation.data(
   val.data_dir.path ="./val.set/",
@@ -69,7 +69,7 @@ val.data <- make_validation.data(
   export_name = "deg"
 )
 ~~~
-実行が終わると、current dir内に「"export_name"_val.data.txt」、「"export_name"_val.data_gene.txt」、「"export_name"_val.data_name.txt」が作成されます。
+After execution, "'export_name'_val.data.txt", "'export_name'_val.data_gene.txt", and "'export_name'_val.data_name.txt" will be created in the current directory.
 
 > ### Tip:  
 > 比較したいデータ（validation）データがgmt形式ではなく、遺伝子名とP-value、Fold change等が記載されている下記のようなリストであれば、"**fromat_val.data_from.deg**"の関数で、validation dataの形式に変換することができます。
