@@ -29,6 +29,8 @@ GsVecはCRANの以下のパッケージを使用します。事前にインス�
 ~~~
 install.packages("data.table")
 install.packages("ggplot2")
+install.packages("reshape2")
+install.packages("RColorBrewer")
 install.packages("Rtsne")
 install.packages("fastTextR")
 install.packages("mclust")
