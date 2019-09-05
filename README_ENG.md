@@ -15,8 +15,8 @@ Please refer to the following paper for details.
 
 ## Download
 - GsVec.tools.R
-  - Download the file “GsVec.tools_v5.R” in this directory.
-  > [GsVec.tools_v5.R](https://github.com/yuumio/GsVec/GsVec.tool_v5.R)
+  - Download the file “GsVec.tools_v1.R” in this directory.
+  > [GsVec.tools_v1.R](GsVec.tools_v1.R)
 - Training data from MSigDB
   - **Please follow the MSigDB rules for licensing.** http://software.broadinstitute.org/gsea/license_terms_list.jsp
   - Please download the gmt files indicated by Gene Symbol of “CP: Canonical pathways” of “C2: curated gene sets” and “BP: GO biological process” of “C5: GO gene sets”. However, some CPs require a license, so be careful when downloading.
@@ -74,7 +74,7 @@ val.data <- make_validation.data(
 After execution, "'export_name'_val.data.txt", "'export_name'_val.data_gene.txt", and "'export_name'_val.data_name.txt" will be created in the current directory.
 
 > ### Tip:  
-> 比較したいデータ（validation）データがgmt形式ではなく、遺伝子名とP-value、Fold change等が記載されている下記のようなリストであれば、"**fromat_val.data_from.deg**"の関数で、validation dataの形式に変換することができます。
+> If the data you want to compare (validation) is not in the gmt format, but is in the following list where the gene name, P-value, Fold change, etc. are described, the function "**fromat_val.data_from.deg**" Can be converted to validation data format.
 > 
 > |Gene|P-value|log2FC|
 > |:------|------:|------:| 
@@ -93,9 +93,9 @@ After execution, "'export_name'_val.data.txt", "'export_name'_val.data_gene.txt"
 > ~~~
     
 ### 3. Create Gene-topic vector of training data
-まず、"**gs.train_genevec**"関数で、Gene vector(要はWord2Vec)を作ります。
-- vector sizeやepoch数も変更可能です。（デフォルトがおすすめ）
-- cpu.threadsはご自身の環境に合わせて変更してください。
+First, create a Gene vector (in short, Word2Vec) with the "**gs.train_genevec**" function.
+-Vector size and number of epochs can be changed. (Default is recommended)
+- Please change cpu.threads according to your environment.
 ~~~
 train.fm <- gs.train_genevec(
   train_gene.txt="./gsvec_train.data_gene.txt", 
