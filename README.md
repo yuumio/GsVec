@@ -16,7 +16,7 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 ## Download
 - GsVec.tools.R
   - このフォルダの「GsVec.tools_v1.R」のファイルをダウンロードしてください。
-  > [GsVec.tools_v1.R](https://github.com/yuumio/GsVec/GsVec.tool_v1.R)
+  > [GsVec.tools_v1.R](https://github.com/yuumio/GsVec/blob/master/GsVec.tools_v1.R)
 - Training data from MSigDB
   - **ライセンスはMSigDBの規約に従ってください。** http://software.broadinstitute.org/gsea/license_terms_list.jsp
   - 「C2: curated gene sets」の「CP: Canonical pathways」と、「C5: GO gene sets」の「BP: GO biological process」のGene Symbolで表記されたgmtファイルをダウンロードしてください。ただし、CPには一部ライセンスが必要なものがありますので、ダウンロード時は注意してください。
