@@ -94,7 +94,7 @@ After execution, "'export_name'_val.data.txt", "'export_name'_val.data_gene.txt"
     
 ### 3. Create Gene-topic vector of training data
 First, create a Gene vector (in short, Word2Vec) with the "**gs.train_genevec**" function.
--Vector size and number of epochs can be changed. (Default is recommended)
+- Vector size and number of epochs can be changed. (Default is recommended)
 - Please change cpu.threads according to your environment.
 ~~~
 train.fm <- gs.train_genevec(
@@ -104,10 +104,10 @@ train.fm <- gs.train_genevec(
   cpu.threads =10
 )
 ~~~
-次に、"**estimate_cluster_size**"関数で、trainingデータに含まれるトピック（クラスター）数の目安をつけます。
-- クラスタリングの方法はGMMとLDAから選択することができます。
-- それ以外はデフォルトをおすすめします。
-- このステップにはLDAでは数時間かかることがあります。
+Next, use the "**estimate_cluster_size**" function to give a rough estimate of the number of topics (clusters) included in the training data.
+- The clustering method can be selected from GMM and LDA.
+- Otherwise, the default is recommended.
+- This step may take several hours for LDA.
 ~~~
 estimate_cluster.n(
 	genevec = train.fm,
@@ -118,12 +118,12 @@ estimate_cluster.n(
 )
 ~~~
 > ### CAUTION!
-> - **mclustによるGMMのBIC（Bayesian information criterion）は、通常のBICと異なり（2*対数尤度 になっている）、最も大きい値が最適なクラスターです。GMMを用いる場合はBICが最も大きいクラスター数を選択してください。**
-> - LDAのBICは通常通り、最も低いクラスター数を選択してください。
+> - **The BIC (Bayesian information criterion) of GMM by mclust is 2 * log likelihood unlike normal BIC, so the largest value is the optimal cluster. When using GMM, select the number of clusters with the largest BIC.**
+> - Select the lowest number of clusters as usual for LDA BICs.
 
-この値を用いて、Gene-topic vectorを"**gs.train_topicvec**"の関数で作成します。
-- "cluster_n"に選択したクラスター数を入力してください。
-- "cluster_method"は先程と同じものを選択してください（GMM or LDA）。
+Use this value to create a Gene-topic vector with the function "**gs.train_topicvec**".
+- Enter the number of clusters selected in "cluster_n".
+- Select the same “cluster_method” as before (GMM or LDA).
 ~~~
 train.tv <- gs.train_topicvec(
   gene.vec = train.fm, 
@@ -136,13 +136,13 @@ out <- data.table(id = rownames(train.fm), train.fm, stringsAsFactors = F)
 fwrite(out,paste0("train.fm_",feature.name,".txt"),sep="\t",quote=F,row.names=F)
 ~~~
 > ### Note:
-> 一度Gene-topic vectorを作れば、次回以降は1.のmake_val.dataと次のGsVecの実行だけです。
+> Once you create a Gene-topic vector, you only need to execute 1. make_val.data and the next 4. run GsVec for the second and subsequent times.
     
 ### 4. Run GsVec
-"**GSVEC**"関数を用いて、ここまでに作成した"train.data","val.data","train.tv"(Gene-topic vector)を使って、Training dataとValidation dataのGene signature間の類似度を求めます。
-- この結果を用いてtSNEで可視化するためには、"export_predict.gs.vector"のオプションをT(TRUE)にしておいてください。
-- "calc.Fisher"のオプションT(TRUE)で、Fisher excat test(以降、Fisher)を同時に実行できます。Fisherの結果も並べて解釈することは有用です。
-- このステップには、val.dataの数により、数時間かかる場合があります。
+Execute "**GSVEC**" function on "train.data", "val.data", "train.tv" (Gene-topic vector) created so far, and find the similarity between Gene signature of Training data and Validation data.
+- To visualize this result with tSNE, set the "export_predict.gs.vector" option to T (TRUE).
+- If the "calc.Fisher" option is set to T (TRUE), the Fisher excat test can be executed simultaneously. It is useful to interpret Fisher results side by side.
+- This step may take several hours depending on the number of val.data.
 ~~~
 gsvec <- GSVEC(
   train.data = train.data,
@@ -155,11 +155,11 @@ gsvec <- GSVEC(
 ~~~
 
 
-### Optional method: Vidualization by tSNE
-Training dataとValidating dataをtSNEにより可視化をすることができます。
-- gsvec.matには、4.の"export_predict.gs.vector"のオプションで作成された、"pred.val_freature.name.txt"を使用します。
-- デフォルトではtSNEの前にPCAを行い、その95%以上の主成分でtSNEを行います（高速）。直接tSNEを行いたい場合は、"pca.thres"のオプションを"NA"にしてください。
-- 他はデフォルトを推奨します。
+### (Optional method:) Vidualization by tSNE
+Training data and Validating data can be visualized by tSNE.
+- As gsvec.mat, use "pred.val_freature.name.txt" created with the "export_predict.gs.vector" option in 4.
+- By default, PCA is performed before tSNE, and tSNE is performed with more than 95% of the principal components (high speed). If you want to perform tSNE directly, set the "pca.thres" option to "NA".
+- Defaults are recommended for other options.
 ~~~
 tmp <- as.data.frame(fread("./pred.val_feature.name.txt",stringsAsFactors = F))
 pred.val <- as.matrix(tmp[,-1])
@@ -178,8 +178,8 @@ pca.tsne_GsVec <- function(
 )
 ~~~
 > ### Tip:
-> - デフォルトではTrain.dataとval.dataを2色に色分けします。
-> - Signatureごとに色を分けたい場合は、IDの列にSignature nameを、Groupの列に色分けの対象となるグループ名を記載した、Data.frameを作成し、"gs.group_id.group.mat"のオプションで指定してください。
+> - By default, Train.data and val.data are color-coded into two colors.
+> - If you want to separate colors for each signature, create a Data.frame with the signature name in the ID column and the group name to be color coded in the Group column, and specify "gs.group_id.group.mat" option.
 > 
 > | ID | Group |
 > |:---|:---| 
