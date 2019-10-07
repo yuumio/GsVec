@@ -9,7 +9,7 @@ GsVecはそれらの方法と異なり、自然言語処理における文章の
 また、この手法はBioinformaticsの主流言語であるR言語のみで全工程を実行可能です。
 
 詳細は下記の論文を参照してください。
-> [Yuumi Okuzono, Takashi Hoshino. "" XXXXXXX p.- 2019](https://www.google.co.jp/)
+> Yuumi Okuzono, Takashi Hoshino. "Comprehensive Biological Interpretation of Gene Signatures using Semantic Distributed Representation" 2019 (Manuscript in preparation)
 
 ----
 
