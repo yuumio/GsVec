@@ -49,7 +49,7 @@ source("./GsVec.tools_v05.R")
 ~~~
 
     
-### 2. Preparate training and validation data
+### 2. Prepare training and validation data
 Store the gmt file(s) of Training data from MSigDB and the gmt file(s) of your own gene signature that you want to perform biological interpretation in **different folders** and execute the following functions.
 - Multiple gmt files can be included in a folder.
 - Please refer to the gmt file of MSigDB for the format of the gmt file.
