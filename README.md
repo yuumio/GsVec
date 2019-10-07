@@ -9,7 +9,7 @@ GsVec is a unique method different from those methods. This method is a semantic
 In addition, this method can execute all processes only in the main language of Bioinformatics, R.
 
 Please refer to the following paper for details.
-> [Yuumi Okuzono, Takashi Hoshino. "" XXXXXXX p.- 2019](https://www.google.co.jp/)
+*Yuumi Okuzono, Takashi Hoshino. "Comprehensive Biological Interpretation of Gene Signatures using Semantic Distributed Representation" 2019 (Manuscript in preparation)*
 
 ----
 
