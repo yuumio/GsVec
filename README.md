@@ -1,6 +1,6 @@
 # GsVec
 
-GsVec (Gene signature Vector) is an analysis method that supports the biological interpretation of Gene signature obtained by gene expression analysis of Bioinformatics. The association between the gene signature to be interpreted and the gene signature of the Pathway / Gene Ontology data base is performed by natural language processing.
+GsVec (Gene signature Vector) is an analysis method that supports the biological interpretation of Gene signature obtained by gene expression analysis of Bioinformatics. The association between the gene signatures to be interpreted and the gene signature of the Pathway / Gene Ontology data base is performed by natural language processing.
 
 Conventional so-called Pathway enrichment analysis (Fisher exact test, GSEA, etc.) is a numerical comparison such as overlap with Gene signature and bias of distribution, and it was not possible to compare the specificity and importance of the genes involved as humans do.
 
